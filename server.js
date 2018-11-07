@@ -7,10 +7,11 @@ const env = process.env.NODE_ENV || 'development';
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/./app/public')));
+app.use(express.static(path.join(__dirname, './app/public')));
 app.use(express.json());
 
-require(path.join(__dirname + '/app/routes/html-routes.js'));
+require(path.join(__dirname, 'app/routes/html-routes.js'))(app);
+require(path.join(__dirname, 'app/routes/api-routes.js'))(app);
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
