@@ -13,6 +13,9 @@ app.use(express.json());
 require(path.join(__dirname, 'app/routes/html-routes.js'))(app);
 require(path.join(__dirname, 'app/routes/api-routes.js'))(app);
 
+require(path.join(__dirname, 'app/routes/user-api-routes.js'))(app);
+require(path.join(__dirname, 'app/routes/protected-api-routes.js'))(app);
+
 db.sequelize.sync({ force: env === 'development' }).then(function() {
     app.listen(PORT, function() {
         if (env === 'development') {
