@@ -26,10 +26,16 @@ module.exports = function(connection, Sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
-        name: {
+        firstname: {
             type: Sequelize.STRING,
             validate: {
-                is: /^[a-z ,.'-]+$/i
+                is: /^[a-z'-]+$/i
+            }
+        },
+        lastname: {
+            type: Sequelize.STRING,
+            validate: {
+                is: /^[a-z'-]+$/i
             }
         }
     })
