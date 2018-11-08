@@ -22,6 +22,10 @@ module.exports = function(connection, Sequelize) {
                 msg: 'Email already in use'
             }
         },
+        password: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         name: {
             type: Sequelize.STRING,
             validate: {
