@@ -1,13 +1,13 @@
 const db = require('../models');
 
 module.exports = function(app) {
-    app.get('/api/tests', (req, res) => {
-        db.Test.findAll()
+    app.get('/api/users', (req, res) => {
+        db.User.findAll()
             .then(data => res.json(data))
             .catch(err => res.json(err));
     });
-    app.post('/api/tests', (req, res) => {
-        db.Test.create(req.body)
+    app.post('/api/users', (req, res) => {
+        db.User.create(req.body)
             .then(data => res.json(data))
             .catch(err => res.json({ error: err }))
     })
