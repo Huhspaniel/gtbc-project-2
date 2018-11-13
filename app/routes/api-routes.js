@@ -21,22 +21,22 @@ const encryptPassword = function (req, res, next) {
 
 module.exports = function (app) {
     app.get('/api/users', authenticate, (req, res) => {
-        db.User.findAll()
+        db.user.findAll()
             .then(data => res.json(data))
             .catch(err => res.json(err));
     });
     app.get('/api/users/:username', (req, res) => {
-        db.User.findOne({ where: { username: req.params.username } })
+        db.user.findOne({ where: { username: req.params.username } })
             .then(data => res.json(data))
             .catch(err => res.json({ error: err }));
     })
     app.post('/api/users', encryptPassword, (req, res) => {
-        db.User.create(req.body)
+        db.user.create(req.body)
             .then(data => res.json(data))
             .catch(err => res.json({ error: err }));
     });
     app.put('/api/users/:id', validateUser, (req, res) => {
-        db.User.update(req.body, { where: { id: req.params.id } })
+        db.user.update(req.body, { where: { id: req.params.id } })
             .then(data => res.json(data))
             .catch(err => res.json({ error: err }));
     });
