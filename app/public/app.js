@@ -5,4 +5,5 @@ const hideHomePage = function(){
     $('.band-page').removeClass('hide');
 }
 $('.login-button').on('click', hideHomePage);
+$('.search-artists').on('click', hideHomePage);
 

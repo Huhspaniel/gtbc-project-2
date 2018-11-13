@@ -13,3 +13,14 @@ body{
 .hide{
     display:none;
 }
+.home-link{
+    text-decoration: none !important;
+    font-size: 20px;
+    color: rgb(190, 126, 41);
+}
+.home-link:hover{
+    color:orange;
+}
+.active{
+    margin-left:20px;
+}
