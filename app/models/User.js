@@ -1,5 +1,5 @@
 module.exports = function(connection, Sequelize) {
-    const User = connection.define('User', {
+    const user = connection.define('user', {
         username: {
             allowNull: false,
             type: Sequelize.STRING,
@@ -38,6 +38,6 @@ module.exports = function(connection, Sequelize) {
                 is: /^[a-z'-]+$/i
             }
         }
-    })
-    return User;
+    }, { underscored: true, underscoredAll: true })
+    return user;
 }
