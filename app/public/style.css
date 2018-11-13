@@ -1,0 +1,15 @@
+body{
+    background-image: url("assets/phones.jpg");
+    opacity:0.7;
+    background-repeat:no-repeat;
+    background-size:cover;   
+}
+.welcome-text{
+    color:white;
+}
+.page-row{
+    width:100%;
+}
+.hide{
+    display:none;
+}
