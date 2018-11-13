@@ -1,7 +1,7 @@
 module.exports = {
     development: {
         username: "root",
-        password: "password",
+        password: process.env.DB_PASS,
         database: "db",
         host: "127.0.0.1",
         port: 3306,
