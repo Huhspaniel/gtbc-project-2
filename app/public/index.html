@@ -27,6 +27,33 @@
     </header>
     <main class="home">
         <h1>Home</h1>
+        <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn">
+            <div class="col-md-10 welcome-page">
+                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text welcome-page">Welcome To Live List!</h2>
+                <h3 class="black-text font-weight-bold my-4 welcome-text welcome-page">The number one web application
+                    to
+                    generate
+                    Spotify playlists<br>
+                    based off of you favorite band's latest concert</h3>
+                <h4 class="black-text font-weight-bold my-4 welcome-text welcome-page">Login to Your Spotify Account
+                    Below
+                </h4>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn">
+            <div class="col-md-2 welcome-page">
+                <div class="card welcome-page" style="width: 18rem;">
+                    <img class="card-img-top welcome-page" alt="Card image cap">
+                    <div class="card-body welcome-page">
+                        <h5 class="card-title welcome-page">Spotify Login</h5>
+                        <p class="card-text welcome-page">Login to your Spotify account below</p>
+                    </div>
+                    <div class="card-body welcome-page">
+                        <button type="button" class="btn btn-secondary login-button welcome-page">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <main class="login hidden">
         <h1>Login</h1>
@@ -44,6 +71,45 @@
     </main>
     <main class="search-artists hidden">
         <h1>Search Artists</h1>
+        <div class="row d-flex justify-content-center text-center page-row">
+            <div class="col-md-10">
+                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text band-page hide animated fadeIn">Enter your
+                    favorite band below</h2>
+                <h3 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">Create Spotify
+                    playlists based off
+                    of you favorite band's most recent<br>
+                    concert playlist</h3>
+                <h4 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">You can also
+                    search for bands
+                    playing in your area</h4>
+            </div>
+            <div class="row d-flex justify-content-center text-center page-row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group band-page hide animated fadeIn">
+                            <label for="formGroupExampleInput animated fadeIn">Enter your favorite artist</label>
+                            <input type="text" class="form-control band-page hide" id="formGroupExampleInput"
+                                placeholder="Band name">
+                        </div>
+                        <div class="form-row animated fadeIn">
+                            <div class="col-7">
+                                <input type="text" class="form-control band-page hide animated fadeIn" placeholder="City">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control band-page hide animated fadeIn" placeholder="State">
+                            </div>
+                            <button type="submit" class="btn btn-primary band-page hide animated fadeIn">Search</button>
+                        </div>
+                    </form>
+                    <div class="socketInterface">
+                        <ul id="socketMessages"></ul>
+                        <form action="">
+                            <input id="m" autocomplete="off" /><button>Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <main class="create-account hidden">
         <h1>Create Account</h1>
@@ -71,6 +137,11 @@
     <footer>
 
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="app.js"></script>
 </body>
 
