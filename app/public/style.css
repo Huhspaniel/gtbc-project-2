@@ -1,9 +1,13 @@
-body{
+/* body{
     background-image: url("assets/phones.jpg");
-    background-color: black;
-    opacity:0.7;
+    background-color: #202020;
+    opacity:0.9;
     background-repeat:no-repeat;
-    background-size:cover;   
+    background-size:cover;  
+    font-family: 'Poppins', sans-serif;
+}
+nav {
+    background-color: #404040;
 }
 .welcome-text{
     color:white;
@@ -24,4 +28,43 @@ body{
 }
 .active{
     margin-left:20px;
+} */
+
+body {
+    display: grid;
+    grid-template: auto auto / auto;
+
+    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+header {
+    background-color: #404040;
+    grid-area: 1 / 1 / 1 / 1;
+    display: grid;
+    grid-template: 1fr / 150px 1fr;
+    align-items: center;
+    font-size: 17px;
+    border-bottom: 2px solid orange;
+}
+header img {
+    width: 100%;
+    padding: 10px;
+}
+nav {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    justify-content: space-evenly;
+}
+a {
+    color: #888888cc;
+    text-decoration: none;
+}
+a:hover {
+    color: #888888ff;
+    text-decoration: none;
+}
+.hidden {
+    display: none;
 }
