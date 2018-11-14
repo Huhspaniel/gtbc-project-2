@@ -3,7 +3,7 @@ const RestfulAPI = require('./RestfulAPI');
 const validateToken = require('./validateToken');
 
 const authenticate = function (req, res, next) {
-    if (req.header('AdminKey') === process.env.API_KEY) {
+    if (req.header('x-access') === process.env.API_KEY) {
         next();
     } else {
         res.status(401).send('401 Unauthorized');

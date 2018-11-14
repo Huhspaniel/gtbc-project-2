@@ -5,30 +5,23 @@ const bcrypt = require('bcrypt');
 
 const login = function (req, res, next) {
     if (req.body.password && (req.body.username || req.body.email)) {
-        var incorrect = { error: 'Incorrect username/password combination' };
         db.user.findOne({
             where: {
                 [req.body.username ? 'username' : 'email']: req.body.username || req.body.email
             }
         }).then(user => {
-            console.log(user.password);
-            bcrypt.compare(user.username + req.body.password, user.password).then(same => {
-                if (same) {
-                    console.log('Success!');
-                    next();
-                } else {
-                    res.json(incorrect);
-                }
-            }).catch(err => {
-                console.log(err);
-                res.json(incorrect);
-            })
+            const valid = bcrypt.compareSync(user.username + req.body.password, user.password)
+            if (valid) {
+                next();
+            } else {
+                throw new Error('Incorrect password');
+            }
         }).catch(err => {
             console.log(err);
-            res.json(incorrect);
+            res.json({ auth: false, token: null, error: 'Incorrect username/password combination' });
         });
     } else {
-        res.json({ error: 'Please provide a username and password' })
+        res.json({ auth: false, token: null, error: 'Please provide a username and password' })
     }
 }
 
@@ -41,9 +34,9 @@ module.exports = function (app) {
         const payload = {
             user: req.body.username,
             iat: Date.now(),
-            exp: Date.now() + 60000
+            exp: Date.now() + (60000 * 30)
         };
-        const signature = jsonwebtoken.sign(payload, process.env.JWT_SECRET || 'asdf');
-        res.json({ signature: signature });
+        const token = jsonwebtoken.sign(payload, process.env.JWT_SECRET || 'asdf');
+        res.json({ auth: true, token: token });
     });
 }
