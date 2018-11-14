@@ -5,11 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Home</h1>
+    <div class="container">
+      <button type="button" class="btn btn-primary findEvent" name="button">find event</button>
+      <div class="col" id="eventInfo">
+        <div class="row">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Event Name</h5>
+              <p class="card-text">event description.</p>
+              <a href="#" class="card-link">Add to channel</a>
+              <a href="#" class="card-link">event details</a>
+              <a href="#" class="card-link">purchase tickets</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 </body>
 <script src="app.js"></script>
+<script src="ticketmaster.js"></script>
 </html>
