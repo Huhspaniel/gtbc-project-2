@@ -10,52 +10,49 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 </head>
 
 <body>
-
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-fixed-top sticky-top nav-top">
-        <a class="navbar-brand" href="#"><img src="assets/live_list.png" height="80px" width="230px" alt="logo" style="overflow: hidden;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="view-inventory home-link go-home" href="#">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="view-cart home-link search-artists" href="#">Search Artists</a>
-                </li>
-
-
-            </ul>
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-fixed-top sticky-top nav-top animated fadeIn">
+                <a class="navbar-brand" href="#"><img src="assets/live_list.png" height="80px" width="230px" alt="logo" style="overflow: hidden;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="view-inventory home-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="view-cart home-link search-artists" href="#">Search Artists</a>
+                        </li>
+                       
+        
+                    </ul>
+                </div>
+            </nav>
+    <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn delay-1s">
+        <div class="col-md-10 welcome-page">
+            <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text welcome-page">Welcome To Live List!</h2>
+            <h3 class="black-text font-weight-bold my-4 welcome-text welcome-page">The number one web application to
+                generate
+                Spotify playlists<br>
+                based off of you favorite band's latest concert</h3>
+            <h4 class="black-text font-weight-bold my-4 welcome-text welcome-page">Login to Your Spotify Account Below
+            </h4>
         </div>
-    </nav>
-    <div class="container">
-        <div class="row d-flex justify-content-center text-center page-row welcome-page">
-            <div class="col-md-10 welcome-page">
-                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text welcome-page">Welcome To Live List!</h2>
-                <h3 class="black-text font-weight-bold my-4 welcome-text welcome-page">The number one web application
-                    to
-                    generate
-                    Spotify playlists<br>
-                    based off of you favorite band's latest concert</h3>
-                <h4 class="black-text font-weight-bold my-4 welcome-text welcome-page">Login to Your Spotify Account
-                    Below
-                </h4>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center page-row welcome-page">
-            <div class="col-md-2 welcome-page">
-                <div class="card welcome-page" style="width: 18rem;">
-                    <img class="card-img-top welcome-page" alt="Card image cap">
-                    <div class="card-body welcome-page">
-                        <h5 class="card-title welcome-page">Spotify Login</h5>
-                        <p class="card-text welcome-page">Login to your Spotify account below</p>
-                    </div>
+    </div>
+    <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn delay-1s">
+        <div class="col-md-2 welcome-page">
+            <div class="card welcome-page" style="width: 18rem;">
+                <img class="card-img-top welcome-page" alt="Card image cap">
+                <div class="card-body welcome-page">
+                    <h5 class="card-title welcome-page">Spotify Login</h5>
+                    <p class="card-text welcome-page">Login to your Spotify account below</p>
+                </div>
 
                     <div class="card-body welcome-page">
                         <button type="button" class="btn btn-secondary login-button welcome-page">Login</button>
@@ -64,37 +61,34 @@
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center text-center page-row">
-            <div class="col-md-10">
-                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text band-page hide">Enter your favorite band
-                    below</h2>
-                <h3 class="black-text font-weight-bold my-4 welcome-text band-page hide">Create Spotify playlists based
-                    off
-                    of you favorite band's most recent<br>
-                    concert playlist</h3>
-                <h4 class="black-text font-weight-bold my-4 welcome-text band-page hide">You can also search for bands
-                    playing in your area</h4>
-            </div>
+    <div class="row d-flex justify-content-center text-center page-row">
+        <div class="col-md-10">
+            <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text band-page hide animated fadeIn">Enter your favorite band below</h2>
+            <h3 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">Create Spotify playlists based off
+                of you favorite band's most recent<br>
+                concert playlist</h3>
+            <h4 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">You can also search for bands
+                playing in your area</h4>
         </div>
         <div class="row d-flex justify-content-center text-center page-row">
             <div class="col-md-6">
                 <form>
 
-                    <div class="form-group band-page hide">
-                        <label for="formGroupExampleInput">Enter your favorite artist</label>
-                        <input type="text" class="form-control band-page hide" id="formGroupExampleInput" placeholder="Band name">
+                <div class="form-group band-page hide animated fadeIn">
+                    <label for="formGroupExampleInput animated fadeIn">Enter your favorite artist</label>
+                    <input type="text" class="form-control band-page hide" id="formGroupExampleInput" placeholder="Band name">
+                </div>
+                <div class="form-row animated fadeIn">
+                    <div class="col-7">
+                        <input type="text" class="form-control band-page hide animated fadeIn" placeholder="City">
                     </div>
-                    <div class="form-row">
-                        <div class="col-7">
-                            <input type="text" class="form-control band-page hide" placeholder="City">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control band-page hide" placeholder="State">
-                        </div>
-                        <button type="submit" class="btn btn-primary band-page hide">Search</button>
+                    <div class="col">
+                        <input type="text" class="form-control band-page hide animated fadeIn" placeholder="State">
                     </div>
-                </form>
-            </div>
+                    <button type="submit" class="btn btn-primary band-page hide animated fadeIn">Search</button>
+                </div>
+            </form>
+        </div>
 
         </div>
 
