@@ -5,8 +5,34 @@ var cookieParser = require('cookie-parser');
 var client_id = '7886529ac1ca47028e6bbaf1f7e3cff5'; // Your client id
 var client_secret = 'df2686e6d924469cb2ce4525d25c1f79'; // Your secret
 var redirect_uri = 'http://localhost:8080'; // Your redirect uri
+const jsonwebtoken = require('jsonwebtoken');
+const db = require('../models');
+const bcrypt = require('bcrypt');
 
-module.exports = function(app) {
+const login = function (req, res, next) {
+    console.log(req.body);
+    if (req.body.password && (req.body.username || req.body.email)) {
+        db.user.findOne({
+            where: {
+                [req.body.username ? 'username' : 'email']: req.body.username || req.body.email
+            }
+        }).then(user => {
+            const valid = bcrypt.compareSync(user.username + req.body.password, user.password)
+            if (valid) {
+                next();
+            } else {
+                throw new Error('Incorrect password');
+            }
+        }).catch(err => {
+            console.log(err);
+            res.json({ auth: false, token: null, error: 'Incorrect username/password combination' });
+        });
+    } else {
+        res.json({ auth: false, token: null, error: 'Please provide a username and password' })
+    }
+}
+
+module.exports = function (app) {
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/index.html'));
 
@@ -33,7 +59,7 @@ module.exports = function(app) {
 
 
 
-    app.get('/login', function(req, res) {
+    app.get('/SpotifyLogin', function(req, res) {
 
       var state = generateRandomString(16);
       res.cookie(stateKey, state);
@@ -135,5 +161,13 @@ module.exports = function(app) {
         }
       });
     });
-
+    app.post('/login', login, (req, res) => {
+        const payload = {
+            user: req.body.username,
+            iat: Date.now(),
+            exp: Date.now() + (60000 * 30)
+        };
+        const token = jsonwebtoken.sign(payload, process.env.JWT_SECRET || 'asdf');
+        res.json({ auth: true, token: token });
+    });
 }

@@ -21,7 +21,7 @@ app.use(express.json());
 require(path.join(__dirname, 'app/routes/html-routes.js'))(app);
 require(path.join(__dirname, 'app/routes/api-routes.js'))(app);
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: env === 'development' }).then(function() {
     app.listen(PORT, function() {
         if (env === 'development') {
             console.log(`App listening on http://localhost:${PORT}`);

@@ -7,95 +7,134 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 2</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-fixed-top sticky-top nav-top animated fadeIn">
-        <a class="navbar-brand" href="#"><img src="assets/live_list.png" height="80px" width="230px" alt="logo" style="overflow: hidden;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="view-inventory home-link" href="#">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="view-cart home-link search-artists" href="#">Search Artists</a>
-                </li>
-
-
-            </ul>
+    <header>
+        <img src="assets/live_list.png" alt="logo">
+        <nav>
+            <button class="nav home">Home</button>
+            <button class="nav search-artists">Search Artists</button>
+            <button class="nav login">Login</button>
+            <button class="nav create-account">Create Account</button>
+        </nav>
+    </header>
+    <main class="home">
+        <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn">
+            <div class="col-md-10 welcome-page">
+                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text welcome-page">Welcome To Live List!</h2>
+                <h3 class="black-text font-weight-bold my-4 welcome-text welcome-page">The number one web application
+                    to
+                    generate
+                    Spotify playlists<br>
+                    based off of you favorite band's latest concert</h3>
+                <h4 class="black-text font-weight-bold my-4 welcome-text welcome-page">Login to Your Spotify Account
+                    Below
+                </h4>
+            </div>
         </div>
-    </nav>
-    <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn delay-1s">
-        <div class="col-md-10 welcome-page">
-            <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text welcome-page">Welcome To Live List!</h2>
-            <h3 class="black-text font-weight-bold my-4 welcome-text welcome-page">The number one web application to
-                generate
-                Spotify playlists<br>
-                based off of you favorite band's latest concert</h3>
-            <h4 class="black-text font-weight-bold my-4 welcome-text welcome-page">Login to Your Spotify Account Below
-            </h4>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn delay-1s">
-        <div class="col-md-2 welcome-page">
-            <div class="card welcome-page" style="width: 18rem;">
-                <img class="card-img-top welcome-page" alt="Card image cap">
-                <div class="card-body welcome-page">
-                    <h5 class="card-title welcome-page">Spotify Login</h5>
-                    <p class="card-text welcome-page">Login to your Spotify account below</p>
-                </div>
-
-                <div class="card-body welcome-page">
-                    <!-- <button type="button" class="btn btn-secondary login-button welcome-page">Login</button> -->
-                    <a href="/login" class="btn btn-secondary login-button welcome-page">Login</a>
+        <div class="row d-flex justify-content-center text-center page-row welcome-page animated fadeIn">
+            <div class="col-md-2 welcome-page">
+                <div class="card welcome-page" style="width: 18rem;">
+                    <img class="card-img-top welcome-page" alt="Card image cap">
+                    <div class="card-body welcome-page">
+                        <h5 class="card-title welcome-page">Spotify Login</h5>
+                        <p class="card-text welcome-page">Login to your Spotify account below</p>
+                    </div>
+                    <div class="card-body welcome-page">
+                        <!-- <button type="button" class="btn btn-secondary login-button welcome-page">Login</button> -->
+                        <a href="/SpotifyLogin"><button class="btn btn-outline-secondary"><span class="st-icon-spotify"></span>Spotify Login</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row d-flex justify-content-center text-center page-row">
-        <div class="col-md-10">
-            <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text band-page hide animated fadeIn">Enter your
-                favorite band below</h2>
-            <h3 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">Create Spotify
-                playlists based off
-                of you favorite band's most recent<br>
-                concert playlist</h3>
-            <h4 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">You can also
-                search for bands
-                playing in your area</h4>
+    </main>
+    <main class="login hidden">
+        <h1>Login</h1>
+        <div class="login-box">
+            <h2>Username:</h2>
+            <input type="text" class="username">
+            <h2>Password:</h2>
+            <input type="text" class="password">
+            <button class="submit-login">Submit</button>
+            <div>
+                <button class="nav create-account">Create Account</button>
+                <button class="nav login-spotify">Login with Spotify</button>
+            </div>
         </div>
+    </main>
+    <main class="search-artists hidden">
+        <h1>Search Artists</h1>
         <div class="row d-flex justify-content-center text-center page-row">
-            <div class="col-md-6">
-                <form>
-
-                    <div class="form-group band-page hide animated fadeIn">
-                        <label for="formGroupExampleInput animated fadeIn">Enter your favorite artist</label>
-                        <input type="text" class="form-control band-page hide" id="formGroupExampleInput band-input"
-                            placeholder="Band name">
-                    </div>
-                    <div class="form-row animated fadeIn">
-                        <div class="col-7">
-                            <input type="text" class="form-control band-page hide animated fadeIn" placeholder="City">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control band-page hide animated fadeIn" placeholder="State">
-                        </div>
-                        <button type="submit" class="btn btn-primary band-page hide animated fadeIn search-button">Search</button>
-                    </div>
-                </form>
+            <div class="col-md-10">
+                <h2 class="display-4 font-weight-bold pt-5 mb-2 welcome-text band-page hide animated fadeIn">Enter your
+                    favorite band below</h2>
+                <h3 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">Create Spotify
+                    playlists based off
+                    of you favorite band's most recent<br>
+                    concert playlist</h3>
+                <h4 class="black-text font-weight-bold my-4 welcome-text band-page hide animated fadeIn">You can also
+                    search for bands
+                    playing in your area</h4>
             </div>
-
+            <div class="row d-flex justify-content-center text-center page-row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group band-page hide animated fadeIn">
+                            <label for="formGroupExampleInput animated fadeIn">Enter your favorite artist</label>
+                            <input type="text" class="form-control band-page hide" id="formGroupExampleInput"
+                                placeholder="Band name">
+                        </div>
+                        <div class="form-row animated fadeIn">
+                            <div class="col-7">
+                                <input type="text" class="form-control band-page hide animated fadeIn" placeholder="City">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control band-page hide animated fadeIn" placeholder="State">
+                            </div>
+                            <button type="submit" class="btn btn-primary band-page hide animated fadeIn">Search</button>
+                        </div>
+                    </form>
+                    <div class="socketInterface">
+                        <ul id="socketMessages"></ul>
+                        <form action="">
+                            <input id="m" autocomplete="off" /><button>Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
+    <main class="create-account hidden">
+        <h1>Create Account</h1>
+        <div class="create-box">
+            <h2>Email:</h2>
+            <input type="text" class="email">
+            <h2>Username:</h2>
+            <input type="text" class="username">
+            <h2>Password:</h2>
+            <input type="text" class="password">
+            <button class="submit-create">Submit</button>
+            <div>
+                <button class="nav login">Login</button>
+                <button class="nav login-spotify">Login with Spotify</button>
+            </div>
+        </div>
+    </main>
+    <main class="login-spotify hidden">
+        <h1>Login With Spotify</h1>
+        <div>
+            <button class="nav login">Login</button>
+            <button class="nav create-account">Create Account</button>
+        </div>
+    </main>
+    <footer>
 
     </div>
 
@@ -105,9 +144,8 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="app.js"></script>
-    <script src="spotifyAPI.js"></script>
-    <script src="authorization.js"></script>
 </body>
 
 
