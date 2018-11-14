@@ -23,6 +23,7 @@ const passwordLogin = document.querySelector('.login-box .password');
 const emailCreate = document.querySelector('.create-box .email');
 const usernameCreate = document.querySelector('.create-box .username');
 const passwordCreate = document.querySelector('.create-box .password');
+let token;
 
 const loadPage = e => {
     if (e.target.tagName === 'BUTTON') {
@@ -39,7 +40,8 @@ document.querySelector('.submit-login').addEventListener('click', e => {
     xhr.open('POST', '/login');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
-        const auth = xhr.response;
+        const res = xhr.response;
+        if (res.auth) token = res.token;
         console.log(JSON.parse(auth));
     }
     xhr.send(JSON.stringify({
@@ -51,7 +53,7 @@ document.querySelector('.submit-login').addEventListener('click', e => {
 document.querySelector('.submit-create').addEventListener('click', e => {
     e.preventDefault();
     xhr.open('POST', '/api/users');
-    xhr.setRequestHeader('Content-Type', 'application/json')
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
         const user = xhr.response;
         console.log(JSON.parse(user));
