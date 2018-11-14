@@ -1,4 +1,4 @@
-
+$(function (){
 //this function hides the welcome page and shows the search page on button click
 const hideHomePage = function () {
     $('.welcome-page').addClass('hide');
@@ -15,17 +15,4 @@ const goHome = function () {
 }
 $('.go-home').on('click', goHome);
 
-$(function () {
-
-let queryURL = `https://api.spotify.com/v1/search?q=${bandName}&type=artist&market=US&limit=10&offset=5`
-
-    $.ajax({
-        url: queryURL,
-        method: 'GET',
-        headers: {
-
-        }
-    }).then(function(response){
-        console.log(response);
-    })
-})
+});
