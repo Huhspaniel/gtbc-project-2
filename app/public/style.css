@@ -90,9 +90,10 @@ main > * {
 h1 {
     text-align: center;
     width: 100%;
-    padding: 20px;
+    padding: 25px;
     background-color: #404040;
     color: white;
+    font-size: 35px;
 }
 h2 {
     font-size: 24px;
