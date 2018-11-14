@@ -3,11 +3,19 @@ const db = require('./app/models');
 const path = require('path');
 const PORT = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || 'development';
+var request = require('request'); // "Request" library
+var cors = require('cors');
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
+
+
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './app/public')));
+
+
 app.use(express.json());
 
 require(path.join(__dirname, 'app/routes/html-routes.js'))(app);
