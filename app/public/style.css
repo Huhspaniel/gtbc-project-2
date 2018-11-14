@@ -1,11 +1,20 @@
-body{
+/* body{
     background-image: url("assets/phones.jpg");
+<<<<<<< HEAD
     /* background-color: black; */
     color: black;
     font: 13px Helvetica, Arial;
     opacity:0.7;
+=======
+    background-color: #202020;
+    opacity:0.9;
+>>>>>>> 9e05fda196018c80f9be09c82e06d7293eaa28fa
     background-repeat:no-repeat;
-    background-size:cover;   
+    background-size:cover;  
+    font-family: 'Poppins', sans-serif;
+}
+nav {
+    background-color: #404040;
 }
 .welcome-text{
     color:white;
@@ -26,6 +35,7 @@ body{
 }
 .active{
     margin-left:20px;
+<<<<<<< HEAD
 }
 
 /* The following lines are for Socket.io*/
@@ -82,3 +92,86 @@ body{
   #socketMessages {
     margin-bottom: 40px;
   }
+=======
+} */
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template: min-content auto / auto;
+
+    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+header {
+    background-color: #404040;
+    grid-area: 1 / 1 / 1 / 1;
+    display: grid;
+    grid-template: 1fr / 150px 1fr;
+    align-items: center;
+    font-size: 17px;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid orange;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+header img {
+    width: 100%;
+    padding: 10px;
+}
+nav {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-evenly;
+}
+button.nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888888aa;
+    text-decoration: none;
+}
+button.nav:hover {
+    color: #888888ff;
+    text-decoration: none;
+}
+button.nav:focus {
+    outline: none;
+}
+main {
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main > * {
+    width: 70%;
+}
+h1 {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #404040;
+    color: white;
+}
+h2 {
+    font-size: 24px;
+}
+.login-box, .create-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+.login-box > *, .create-box > * {
+    margin: 10px;
+}
+.hidden {
+    display: none;
+}
+>>>>>>> 9e05fda196018c80f9be09c82e06d7293eaa28fa

@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 2</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-fixed-top sticky-top nav-top animated fadeIn">
         <a class="navbar-brand" href="#"><img src="assets/live_list.png" height="80px" width="230px" alt="logo" style="overflow: hidden;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -111,6 +113,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+=======
+    <header>
+        <img src="assets/live_list.png" alt="logo">
+        <nav>
+            <button class="nav home">Home</button>
+            <button class="nav search-artists">Search Artists</button>
+            <button class="nav login">Login</button>
+            <button class="nav create-account">Create Account</button>
+        </nav>
+    </header>
+    <main class="home">
+        <h1>Home</h1>
+    </main>
+    <main class="login hidden">
+        <h1>Login</h1>
+        <div class="login-box">
+            <h2>Username:</h2>
+            <input type="text" class="username">
+            <h2>Password:</h2>
+            <input type="text" class="password">
+            <button class="submit-login">Submit</button>
+            <div>
+                <button class="nav create-account">Create Account</button>
+                <button class="nav login-spotify">Login with Spotify</button>
+            </div>
+        </div>
+    </main>
+    <main class="search-artists hidden">
+        <h1>Search Artists</h1>
+    </main>
+    <main class="create-account hidden">
+        <h1>Create Account</h1>
+        <div class="create-box">
+            <h2>Email:</h2>
+            <input type="text" class="email">
+            <h2>Username:</h2>
+            <input type="text" class="username">
+            <h2>Password:</h2>
+            <input type="text" class="password">
+            <button class="submit-create">Submit</button>
+            <div>
+                <button class="nav login">Login</button>
+                <button class="nav login-spotify">Login with Spotify</button>
+            </div>
+        </div>
+    </main>
+    <main class="login-spotify hidden">
+        <h1>Login With Spotify</h1>
+        <div>
+            <button class="nav login">Login</button>
+            <button class="nav create-account">Create Account</button>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+>>>>>>> 9e05fda196018c80f9be09c82e06d7293eaa28fa
     <script src="app.js"></script>
     <!-- Getting this to function before I add this into it's own js file (11/14/18)-->
     <script>
@@ -128,6 +187,5 @@
         });
     </script>
 </body>
-
 
 </html>

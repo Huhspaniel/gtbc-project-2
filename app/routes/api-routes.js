@@ -1,14 +1,23 @@
 const db = require('../models');
+const RestfulAPI = require('./RestfulAPI');
+const validateToken = require('./validateToken');
 
-module.exports = function(app) {
-    app.get('/api/tests', (req, res) => {
-        db.Test.findAll()
-            .then(data => res.json(data))
-            .catch(err => res.json(err));
+const authenticate = function (req, res, next) {
+    if (req.header('x-access') === process.env.API_KEY) {
+        next();
+    } else {
+        res.status(401).send('401 Unauthorized');
+    }
+}
+
+module.exports = function (app) {
+    const user = new RestfulAPI('users', db.user, app);
+    user.findAll(null, null, authenticate);
+    user.findOne('username', null);
+    user.create();
+    user.update('username', validateToken, (req, res, next) => {
+        req.body.username = req.body.username || req.params.username;
+        next();
     });
-    app.post('/api/tests', (req, res) => {
-        db.Test.create(req.body)
-            .then(data => res.json(data))
-            .catch(err => res.json({ error: err }))
-    })
+    user.delete('username', validateToken);
 }
