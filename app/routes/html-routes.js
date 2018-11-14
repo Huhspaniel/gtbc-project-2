@@ -4,6 +4,7 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 
 const login = function (req, res, next) {
+    console.log(req.body);
     if (req.body.password && (req.body.username || req.body.email)) {
         db.user.findOne({
             where: {

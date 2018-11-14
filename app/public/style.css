@@ -46,6 +46,10 @@ header {
     align-items: center;
     font-size: 17px;
     border-bottom: 2px solid orange;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 header img {
     width: 100%;
@@ -57,13 +61,33 @@ nav {
     max-width: 400px;
     justify-content: space-evenly;
 }
-a {
-    color: #888888cc;
+button.nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888888aa;
     text-decoration: none;
 }
-a:hover {
+button.nav:hover {
     color: #888888ff;
     text-decoration: none;
+}
+button.nav:focus {
+    outline: none;
+}
+main {
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+.login-box, .create-box {
+    display: flex;
+    flex-direction: column;
+}
+.login-box > *, .create-box > * {
+    margin: 10px;
 }
 .hidden {
     display: none;
