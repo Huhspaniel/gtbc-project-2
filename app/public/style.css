@@ -34,14 +34,14 @@ body {
     min-height: 100vh;
 
     display: grid;
-    grid-template: min-content auto / auto;
+    grid-template: min-content auto 100px/ auto;
 
     background-color: #fafafa;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 header {
-    background-color: #404040;
+    background-color: #101010;
     grid-area: 1 / 1 / 1 / 1;
     display: grid;
     grid-template: 1fr / 150px 1fr;
@@ -91,7 +91,7 @@ h1 {
     text-align: center;
     width: 100%;
     padding: 25px;
-    background-color: #404040;
+    background-color: #101010;
     color: white;
     font-size: 35px;
 }
@@ -106,6 +106,10 @@ h2 {
 }
 .login-box > *, .create-box > * {
     margin: 10px;
+}
+footer {
+    background-color: orange;
+    border-top: 2px solid #101010;
 }
 .hidden {
     display: none;
