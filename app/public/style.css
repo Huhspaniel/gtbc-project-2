@@ -1,6 +1,8 @@
 body{
     background-image: url("assets/phones.jpg");
-    background-color: black;
+    /* background-color: black; */
+    color: black;
+    font: 13px Helvetica, Arial;
     opacity:0.7;
     background-repeat:no-repeat;
     background-size:cover;   
@@ -25,3 +27,58 @@ body{
 .active{
     margin-left:20px;
 }
+
+/* The following lines are for Socket.io*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .socket {
+    width: 450px;
+    height: 550px;
+    color: white;
+    background-color: teal;
+  }
+
+  form {
+    background: rgb(85, 84, 84);
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 450px;
+  }
+
+  form input {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    margin-right: .5%;
+  }
+
+  form button {
+    width: 100%;
+    background: rgb(87, 202, 139);
+    border: none;
+    padding: 10px;
+  }
+
+  #socketMessages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #socketMessages li {
+    padding: 5px 10px;
+  }
+
+  #socketMessages li:nth-child(odd) {
+    background: #eee;
+  }
+
+  #socketMessages {
+    margin-bottom: 40px;
+  }
