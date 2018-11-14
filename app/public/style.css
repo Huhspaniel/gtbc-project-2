@@ -1,0 +1,27 @@
+body{
+    background-image: url("assets/phones.jpg");
+    background-color: black;
+    opacity:0.7;
+    background-repeat:no-repeat;
+    background-size:cover;   
+}
+.welcome-text{
+    color:white;
+}
+.page-row{
+    width:100%;
+}
+.hide{
+    display:none;
+}
+.home-link{
+    text-decoration: none !important;
+    font-size: 20px;
+    color: rgb(190, 126, 41);
+}
+.home-link:hover{
+    color:orange;
+}
+.active{
+    margin-left:20px;
+}

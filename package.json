@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,13 @@
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.6.3",
     "sequelize": "^4.41.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Huhspaniel/gtbc-project-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Huhspaniel/gtbc-project-2/issues"
+  },
+  "homepage": "https://github.com/Huhspaniel/gtbc-project-2#readme"
 }
