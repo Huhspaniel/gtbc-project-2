@@ -28,9 +28,6 @@ http.listen(port, function(){
 
 //this function allows the user to go back to the home page when home is clicked on navbar
 
-const goHome = function(){
-    $('.welcome-page').addClass('hide');
-    $('.band-page').removeClass('hide');
 const xhr = new XMLHttpRequest();
 
 const usernameLogin = document.querySelector('.login-box .username');
