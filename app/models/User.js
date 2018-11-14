@@ -1,4 +1,6 @@
-module.exports = function(connection, Sequelize) {
+const bcrypt = require('bcrypt');
+
+module.exports = function (connection, Sequelize) {
     const user = connection.define('user', {
         username: {
             allowNull: false,
@@ -24,7 +26,11 @@ module.exports = function(connection, Sequelize) {
         },
         password: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [8],
+                is: /(?=.*[a-z])(?=.*[0-9]).*/i
+            }
         },
         firstname: {
             type: Sequelize.STRING,
@@ -38,6 +44,21 @@ module.exports = function(connection, Sequelize) {
                 is: /^[a-z'-]+$/i
             }
         }
-    }, { underscored: true, underscoredAll: true })
+    }, {
+        underscored: true,
+        underscoredAll: true,
+        hooks: {
+            afterValidate: user => {
+                if (user.password) {
+                    return bcrypt.hash(user.username + user.password, 10)
+                        .then(hash => {
+                            user.password = hash;
+                        })
+                        .catch(err => console.log(err));
+                }
+            }
+        }
+    });
+
     return user;
 }
