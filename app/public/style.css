@@ -38,12 +38,14 @@ nav {
     box-sizing: border-box;
   }
 
-  .socket {
+  /* .socketInterface {
     width: 450px;
     height: 550px;
-    color: white;
-    background-color: teal;
-  }
+    color: black;
+    background-color: white;
+    border-width: 3px;
+    border-color: #404040;
+  } */
 
   form {
     background: rgb(85, 84, 84);
@@ -75,10 +77,12 @@ nav {
 
   #socketMessages li {
     padding: 5px 10px;
+    color: black;
   }
 
   #socketMessages li:nth-child(odd) {
     background: #eee;
+    color: black;
   }
 
   #socketMessages {
