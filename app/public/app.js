@@ -81,8 +81,12 @@ const renderLogin = () => {
         el.classList.toggle('hidden');
     });
     document.querySelector('.nav.account').click();
-    const accountInfo = document.createElement('P');
-    accountInfo.innerHTML = localStorage.getItem('username');
+    const accountInfo = document.createElement('DIV');
+    accountInfo.classList.add('account-info');
+    accountInfo.innerHTML = 
+        `<p>Username: ${localStorage.getItem('username')}</p>` +
+        `<p>Email: ${localStorage.getItem('email')}</p>` +
+        `<p>Name: ${localStorage.getItem('name')}</p>`;
     document.querySelector('main.account').appendChild(accountInfo);
 }
 window.addEventListener('load', e => {
