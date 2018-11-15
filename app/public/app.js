@@ -76,10 +76,11 @@ const logout = () => {
 
 const renderLogin = () => {
     document.querySelector('.nav.account').textContent = localStorage.getItem('username');
+    document.querySelector('main.account h1').textContent = localStorage.getItem('username');
     Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account')).forEach(el => {
         el.classList.toggle('hidden');
     });
-    document.querySelector('.nav.home').click();
+    document.querySelector('.nav.account').click();
     const accountInfo = document.createElement('P');
     accountInfo.innerHTML = localStorage.getItem('username');
     document.querySelector('main.account').appendChild(accountInfo);
