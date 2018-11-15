@@ -1,3 +1,121 @@
-/* .card-body a {
-display: inline;
+/* body{
+    background-image: url("assets/phones.jpg");
+    background-color: #202020;
+    opacity:0.9;
+    background-repeat:no-repeat;
+    background-size:cover;  
+    font-family: 'Poppins', sans-serif;
+}
+nav {
+    background-color: #404040;
+}
+.welcome-text{
+    color:white;
+}
+.page-row{
+    width:100%;
+}
+.hide{
+    display:none;
+}
+.home-link{
+    text-decoration: none !important;
+    font-size: 20px;
+    color: rgb(190, 126, 41);
+}
+.home-link:hover{
+    color:orange;
+}
+.active{
+    margin-left:20px;
 } */
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template: min-content auto 100px/ auto;
+
+    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+header {
+    background-color: #101010;
+    grid-area: 1 / 1 / 1 / 1;
+    display: grid;
+    grid-template: 1fr / 175px auto;
+    align-items: center;
+    font-size: 17px;
+    border-bottom: 1px solid gray;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+header img {
+    width: 100%;
+    padding: 20px;
+}
+nav {
+    justify-self: flex-end;
+    width: max-content;
+    /* display: flex;
+    justify-content: space-evenly; */
+    display: grid;
+    grid-template: auto / auto;
+    grid-gap: 10px;
+    padding: 10px 20px;
+    justify-items: end;
+}
+button.nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888888aa;
+    text-decoration: none;
+}
+button.nav:hover {
+    color: #888888ff;
+    text-decoration: none;
+}
+button.nav:focus {
+    outline: none;
+}
+main {
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main > * {
+    width: 70%;
+}
+h1 {
+    text-align: center;
+    width: 100%;
+    padding: 25px;
+    background-color: #101010;
+    color: white;
+    font-size: 35px;
+    border-top: 3px solid orange;
+}
+h2 {
+    font-size: 24px;
+}
+div.input {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+div.input > * {
+    margin: 10px;
+}
+footer {
+    background-color: orange;
+    /* border-top: 2px solid #101010; */
+}
+.hidden {
+    display: none;
+}
