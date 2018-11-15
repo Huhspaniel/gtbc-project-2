@@ -23,11 +23,12 @@
                      <h6 class="card-title">${json._embedded.events[i].name}</h6>
                      <p class="card-text">${json._embedded.events[i].dates.start.localDate} <br>
                      ${json._embedded.events[i]._embedded.venues[0].city.name}</p>
-                     <a target="_blank" href="#" class="card-link">Add to Channel</a>
+                     <a target="_blank" href="#" class="card-link" data-ch="${json._embedded.events[i].id}"> Add to Channel</a>
                      <a target="_blank" href="#" class="card-link">Details</a>
                      <a target="_blank" href="${json._embedded.events[i].url}" class="card-link">Tickets</a>
                  </div>`);
                  }
+                 
               },
      error: function(xhr, status, err) {
                  // This time, we do not end up here!
