@@ -3,7 +3,7 @@
     background-color: #202020;
     opacity:0.9;
     background-repeat:no-repeat;
-    background-size:cover;  
+    background-size:cover;
     font-family: 'Poppins', sans-serif;
 }
 nav {
@@ -30,7 +30,7 @@ nav {
     margin-left:20px;
 } */
 
-body {
+.container-fluid {
     min-height: 100vh;
 
     display: grid;
@@ -163,4 +163,14 @@ footer {
 }
 .hidden {
     display: none;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+#page-content-wrapper {
+    padding: 0;
+}
+.container-fluid {
+    padding: 0;
 }
