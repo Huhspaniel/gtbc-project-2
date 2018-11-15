@@ -1,9 +1,15 @@
 
  const displayEvents = function () {
 
+   const setArtist = $('.artist').val().trim();
+   const setCity = $('.city').val().trim();
+   const setState = $('.state').val().trim();
+   const setZip = $('.zip-code').val().trim();
+
+
    $.ajax({
      type:"GET",
-     url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&keyword=music&size=10",
+     url:`https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&keyword=music&size=10&city=${setCity}`,
      async:true,
      dataType: "json",
      success: function(json) {
@@ -22,7 +28,6 @@
                      <a target="_blank" href="${json._embedded.events[i].url}" class="card-link">Tickets</a>
                  </div>`);
                  }
-
               },
      error: function(xhr, status, err) {
                  // This time, we do not end up here!
