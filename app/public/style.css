@@ -30,7 +30,7 @@ nav {
     margin-left:20px;
 } */
 
-body {
+.container-fluid {
     min-height: 100vh;
 
     display: grid;
@@ -122,4 +122,10 @@ footer {
 .wrapper {
     display: flex;
     width: 100%;
-  }
+}
+#page-content-wrapper {
+    padding: 0;
+}
+.container-fluid {
+    padding: 0;
+}
