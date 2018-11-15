@@ -161,6 +161,22 @@ div.input > * {
     padding: 10px;
 }
 
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid orange;
+    border-radius: 10px;
+}
+.event-details h1 {
+    border: none;
+}
+.event-details img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center 0;
+}
+
 footer {
     background-color: orange;
 }
