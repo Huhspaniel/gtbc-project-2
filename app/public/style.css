@@ -58,15 +58,14 @@ header img {
     padding: 20px;
 }
 nav {
-    justify-self: flex-end;
-    width: max-content;
-    /* display: flex;
-    justify-content: space-evenly; */
-    display: grid;
-    grid-template: auto / auto;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    /* display: grid;
+    grid-template: 1fr / repeat(5, 1fr);
     grid-gap: 10px;
     padding: 10px 20px;
-    justify-items: end;
+    justify-items: end; */
 }
 button.nav {
     background: none;
@@ -88,9 +87,13 @@ main {
     flex-direction: column;
     align-items: center;
 }
-main > *:not(h1) {
+main > *:not(h1):not(img) {
     width: calc(100% - 60px);
     max-width: 1000px;
+}
+main.home img {
+    max-width: 100vw;
+    max-height: calc(100vh - 250px);
 }
 .account-info {
     border: 5px solid orange;
@@ -133,6 +136,7 @@ div.input > * {
 }
 
 .event {
+    cursor: pointer;
     display: grid;
     grid-template: min-content auto / auto;
     width: 100%;
@@ -159,7 +163,6 @@ div.input > * {
 
 footer {
     background-color: orange;
-    /* border-top: 2px solid #101010; */
 }
 .hidden {
     display: none;

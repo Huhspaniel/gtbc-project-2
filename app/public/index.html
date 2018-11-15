@@ -23,6 +23,7 @@
                 <img src="assets/white_logo_transparent_background.png" alt="logo">
                 <nav>
                     <button class="nav home">Home</button>
+                    <button class="nav search">Search</button>
                     <button class="nav login">Login</button>
                     <button class="nav create-account">Create Account</button>
                     <button class="nav account hidden">Account</button>
@@ -30,10 +31,11 @@
                     <a href="#" class="nav" id="menu-toggle">Toggle Menu</a>
                 </nav>
             </header>
-
-
             <main class="home">
-                <h1>Search for nearby concerts</h1>
+                <img src="./assets/live_list.png" alt="logo">
+            </main>
+            <main class="search hidden">
+                <h1>Search</h1>
                 <div class="input search">
                     <h2>Artist:</h2>
                     <input type="text" class="artist">
@@ -44,8 +46,8 @@
                     <h2>Zip:</h2>
                     <input type="text" class="zip-code">
                     <button class="findEvent btn btn-secondary submit search">Find Event</button>
+                    <div class="search-results"></div>
                 </div>
-                <div class="search-results"></div>
             </main>
             <main class="login hidden">
                 <h1>Login</h1>
