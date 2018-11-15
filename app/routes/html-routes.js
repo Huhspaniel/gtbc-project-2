@@ -13,6 +13,8 @@ const login = function (req, res, next) {
         }).then(user => {
             const valid = bcrypt.compareSync(user.username + req.body.password, user.password)
             if (valid) {
+                req.body = user.dataValues;
+                req.body.password = undefined;
                 next();
             } else {
                 throw new Error('Incorrect password');
@@ -38,6 +40,6 @@ module.exports = function (app) {
             exp: Date.now() + (60000 * 30)
         };
         const token = jsonwebtoken.sign(payload, process.env.JWT_SECRET || 'asdf');
-        res.json({ auth: true, token: token });
+        res.json({ auth: true, token: token, user: req.body });
     });
 }
