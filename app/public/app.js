@@ -1,3 +1,8 @@
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+
 const xhr = new XMLHttpRequest();
 
 const usernameLogin = document.querySelector('div.login .username');
