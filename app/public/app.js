@@ -6,11 +6,8 @@ const emailCreate = document.querySelector('div.create .email');
 const usernameCreate = document.querySelector('div.create .username');
 const passwordCreate = document.querySelector('div.create .password');
 const nameCreate = document.querySelector('div.create .full-name');
-let token;
-let user;
 
-const clearInputs = (e) => {
-    e.preventDefault();
+const clearInputs = () => {
     Array.from(document.querySelectorAll('input')).forEach(el => {
         el.value = '';
     });
@@ -27,65 +24,7 @@ Array.from(document.getElementsByClassName('nav')).forEach(el => {
     el.addEventListener('click', loadPage);
 })
 
-const renderLogin = e => {
-    e.preventDefault();
-    document.querySelector('.nav.account').textContent = user.username;
-    Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account')).forEach(el => {
-        el.classList.toggle('hidden');
-    });
-    document.querySelector('.nav.home').click();
-    const accountInfo = document.createElement('P');
-    accountInfo.innerHTML = JSON.stringify(user, null, 3);
-    document.querySelector('main.account').appendChild(accountInfo);
-}
-
-document.querySelector('.nav.logout').addEventListener('click', e => {
-    e.preventDefault();
-    Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account')).forEach(el => {
-        el.classList.toggle('hidden');
-    });
-    document.querySelector('.nav.login').click();
-    token = undefined;
-    user = undefined;
-    document.querySelector('main.account').innerHTML = '';
-})
-
-Array.from(document.getElementsByClassName('input')).forEach(el => {
-    el.addEventListener('keyup', e => {
-        e.preventDefault();
-        if (e.key === 'Enter') {
-            el.querySelector('.submit').click();
-        }
-    })
-})
-
-const login = (username, password, e) => {
-    xhr.open('POST', '/login');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = () => {
-        const res = JSON.parse(xhr.response);
-        if (res.auth) {
-            token = res.token;
-            user = res.user;
-            console.log(user);
-            clearInputs(e);
-            renderLogin(e);
-        }
-        console.log(res);
-    }
-    xhr.send(JSON.stringify({
-        username: username,
-        password: password
-    }));
-}
-
-document.querySelector('.submit.login').addEventListener('click', e => {
-    e.preventDefault();
-    login(usernameLogin.value, passwordLogin.value, e);
-})
-
-document.querySelector('.submit.create').addEventListener('click', e => {
-    e.preventDefault();
+const createAccount = e => {
     xhr.open('POST', '/api/users');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
@@ -104,4 +43,71 @@ document.querySelector('.submit.create').addEventListener('click', e => {
         firstname: name[0],
         lastname: name[1]
     }));
+}
+
+const login = (username, password) => {
+    xhr.open('POST', '/login');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = () => {
+        const res = JSON.parse(xhr.response);
+        if (res.auth) {
+            localStorage.setItem('isLoggedIn', true);
+            localStorage.setItem('username', res.user.username);
+            localStorage.setItem('name', res.user.firstname + ' ' + res.user.lastname);
+            localStorage.setItem('email', res.user.email);
+            localStorage.setItem('token', res.token);
+            console.log(res);
+            clearInputs();
+            renderLogin();
+        }
+        console.log(res);
+    }
+    xhr.send(JSON.stringify({
+        username: username,
+        password: password
+    }));
+}
+
+const logout = () => {
+    localStorage.clear();
+    location.reload();
+}
+
+const renderLogin = () => {
+    document.querySelector('.nav.account').textContent = localStorage.getItem('username');
+    Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account')).forEach(el => {
+        el.classList.toggle('hidden');
+    });
+    document.querySelector('.nav.home').click();
+    const accountInfo = document.createElement('P');
+    accountInfo.innerHTML = localStorage.getItem('username');
+    document.querySelector('main.account').appendChild(accountInfo);
+}
+window.addEventListener('load', e => {
+    if (localStorage.getItem('isLoggedIn')) {
+        renderLogin();
+    }
+})
+
+Array.from(document.getElementsByClassName('input')).forEach(el => {
+    el.addEventListener('keyup', e => {
+        e.preventDefault();
+        if (e.key === 'Enter') {
+            el.querySelector('.submit').click();
+        }
+    })
+})
+
+document.querySelector('.submit.login').addEventListener('click', e => {
+    e.preventDefault();
+    login(usernameLogin.value, passwordLogin.value);
+})
+document.querySelector('.nav.logout').addEventListener('click', e => {
+    e.preventDefault();
+    logout();
+})
+
+document.querySelector('.submit.create').addEventListener('click', e => {
+    e.preventDefault();
+    createAccount();
 });
