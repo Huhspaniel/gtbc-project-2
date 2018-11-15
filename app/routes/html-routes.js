@@ -1,11 +1,10 @@
 const path = require('path');
-var cors = require('cors');
 var querystring = require('querystring');
-var cookieParser = require('cookie-parser');
 var client_id = '7886529ac1ca47028e6bbaf1f7e3cff5'; // Your client id
 var client_secret = 'df2686e6d924469cb2ce4525d25c1f79'; // Your secret
-var redirect_uri = 'http://localhost:8080'; // Your redirect uri
+var redirect_uri = 'http://localhost:8080/callback'; // Your redirect uri
 const jsonwebtoken = require('jsonwebtoken');
+const request = require("request");
 const db = require('../models');
 const bcrypt = require('bcrypt');
 
@@ -77,6 +76,7 @@ module.exports = function (app) {
     });
 
     app.get('/callback', function(req, res) {
+
 
       // your application requests refresh and access tokens
       // after checking the state parameter

@@ -57,3 +57,11 @@ document.querySelector('.submit-create').addEventListener('click', e => {
         email: emailCreate.value
     }))
 });
+
+if (window.location.hash) {
+    const urlHash = window.location.hash.substring(1);
+    const hashParams = new URLSearchParams(urlHash);
+    const access_token = hashParams.get("access_token");
+
+    localStorage.setItem("spotify_access_token", access_token);
+}
