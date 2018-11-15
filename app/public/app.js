@@ -1,4 +1,4 @@
-$("#menu-toggle").click(function(e) {
+$("#menu-toggle").click(function (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
@@ -88,7 +88,7 @@ const renderLogin = () => {
     document.querySelector('.nav.account').click();
     const accountInfo = document.createElement('DIV');
     accountInfo.classList.add('account-info');
-    accountInfo.innerHTML = 
+    accountInfo.innerHTML =
         `<p>Username: ${localStorage.getItem('username')}</p>` +
         `<p>Email: ${localStorage.getItem('email')}</p>` +
         `<p>Name: ${localStorage.getItem('name')}</p>`;
@@ -122,3 +122,11 @@ document.querySelector('.submit.create').addEventListener('click', e => {
     e.preventDefault();
     createAccount();
 });
+
+if (window.location.hash) {
+    const urlHash = window.location.hash.substring(1);
+    const hashParams = new URLSearchParams(urlHash);
+    const access_token = hashParams.get("access_token");
+
+    localStorage.setItem("spotify_access_token", access_token);
+}
