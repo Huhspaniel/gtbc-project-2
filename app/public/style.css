@@ -125,6 +125,38 @@ div.input {
 div.input > * {
     margin: 10px;
 }
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.event {
+    display: grid;
+    grid-template: min-content auto / auto;
+    width: 100%;
+    height: 200px;
+    max-width: 300px;
+    text-align: center;
+    margin: 10px;
+    border: 5px solid orange;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+}
+.event img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 0;
+}
+
+.event h2 {
+    font-size: 18px;
+    margin: 0;
+    padding: 10px;
+}
+
 footer {
     background-color: orange;
     /* border-top: 2px solid #101010; */
