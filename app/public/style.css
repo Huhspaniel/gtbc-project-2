@@ -3,7 +3,7 @@
     background-color: #202020;
     opacity:0.9;
     background-repeat:no-repeat;
-    background-size:cover;  
+    background-size:cover;
     font-family: 'Poppins', sans-serif;
 }
 nav {
@@ -119,3 +119,7 @@ footer {
 .hidden {
     display: none;
 }
+.wrapper {
+    display: flex;
+    width: 100%;
+  }
