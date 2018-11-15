@@ -30,64 +30,7 @@ nav {
     margin-left:20px;
 }
 
-/* The following lines are for Socket.io*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  /* .socketInterface {
-    width: 450px;
-    height: 550px;
-    color: black;
-    background-color: white;
-    border-width: 3px;
-    border-color: #404040;
-  } */
-
-  form {
-    background: rgb(85, 84, 84);
-    padding: 3px;
-    position: fixed;
-    bottom: 0;
-    width: 450px;
-  }
-
-  form input {
-    border: 0;
-    padding: 10px;
-    width: 100%;
-    margin-right: .5%;
-  }
-
-  form button {
-    width: 100%;
-    background: rgb(87, 202, 139);
-    border: none;
-    padding: 10px;
-  }
-
-  #socketMessages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #socketMessages li {
-    padding: 5px 10px;
-    color: black;
-  }
-
-  #socketMessages li:nth-child(odd) {
-    background: #eee;
-    color: black;
-  }
-
-  #socketMessages {
-    margin-bottom: 40px;
-  }
+*/
 
 body {
     min-height: 100vh;
@@ -178,3 +121,59 @@ footer {
 .hidden {
     display: none;
 }
+
+/* The following lines are for Socket.io*/
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+  .socketInterface {
+      border-width: 4px;
+      border-color: black;
+  }
+
+  form {
+    background: rgb(85, 84, 84);
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 450px;
+  }
+
+  form input {
+    border: 0;
+    padding:10px;
+    width: 100%;
+    margin-right: .5%;
+  }
+
+  form button {
+    width: 100%;
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+  }
+
+  #socketMessages {
+    width: 450px;
+    height: 400px;
+    color: black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #socketMessages li {
+    padding: 5px 10px;
+  }
+
+  #socketMessages li:nth-child(odd) {
+    background: #eee;
+  }
+
+  #socketMessages {
+    margin-bottom: 40px;
+  }

@@ -41,6 +41,13 @@
             <button class="submit search">Submit</button>
         </div>
     </main>
+    <!-- Socket.io interface test -->
+    <div class="socketInterface">
+        <ul id="socketMessages"></ul>
+        <form action="">
+          <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
     <main class="login hidden">
         <h1>Login</h1>
         <div class="input login">
@@ -92,21 +99,7 @@
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="app.js"></script>
-    <!-- Getting this to function before I add this into it's own js file (11/14/18)-->
-    <script>
-        $(function () {
-            var socket = io();
-            $('form').submit(function () {
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                return false;
-            });
-            socket.on('chat message', function (msg) {
-                $('#messages').append($('<li>').text(msg));
-                window.scrollTo(0, document.body.scrollHeight);
-            });
-        });
-    </script>
+    <script src="socket.js"></script>
 </body>
 
 </html>
