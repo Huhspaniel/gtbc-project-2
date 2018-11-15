@@ -20,6 +20,7 @@ const loadPage = e => {
     if (e.target.tagName === 'BUTTON') {
         document.querySelector('main:not(.hidden)').classList.add('hidden');
         document.querySelector(`main.${e.target.classList[1]}`).classList.remove('hidden');
+        clearInputs(e);
     }
 }
 Array.from(document.getElementsByClassName('nav')).forEach(el => {
