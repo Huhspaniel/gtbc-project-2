@@ -6,7 +6,7 @@ $(function () {
       return false;
     });
     socket.on('chat message', function (msg) {
-      $('#socketMessages').append($('<li>').text(`@${localStorage.getItem('username') || 'Anonymous'}: ${msg}`));
+      $('#socketMessages').append($('<li>').html(`<span style="color:orange">@${localStorage.getItem('username') || 'Anonymous'}:</span> ${msg}`));
       const chatBox = document.querySelector('#socketMessages');
       chatBox.scrollTop = chatBox.scrollHeight;
     });

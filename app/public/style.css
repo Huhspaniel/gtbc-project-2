@@ -263,7 +263,7 @@ footer {
   }
 
   #socketMessages li:nth-child(odd) {
-    background: rgb(170, 169, 169);
+    background: rgb(225, 225, 225);
   }
 .wrapper {
     display: flex;
