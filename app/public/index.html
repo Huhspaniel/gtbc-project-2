@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="simple-sidebar.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="spin.css">
     <title>Project 2</title>
 </head>
 
@@ -23,6 +24,7 @@
                 <img src="assets/white_logo_transparent_background.png" alt="logo">
                 <nav>
                     <button class="nav home">Home</button>
+                    <button class="nav search">Search</button>
                     <button class="nav login">Login</button>
                     <button class="nav create-account">Create Account</button>
                     <button class="nav account hidden">Account</button>
@@ -30,12 +32,13 @@
                     <a href="#" class="nav" id="menu-toggle">Toggle Menu</a>
                 </nav>
             </header>
-
-
             <main class="home">
-                <h1>Search for nearby concerts</h1>
+                <img src="./assets/live_list.png" alt="logo">
+            </main>
+            <main class="search hidden">
+                <h1>Search</h1>
                 <div class="input search">
-                    <h2>Artist:</h2>
+                    <h2>Search:</h2>
                     <input type="text" class="artist">
                     <h2>City:</h2>
                     <input type="text" class="city">
@@ -43,9 +46,9 @@
                     <input type="text" class="state">
                     <h2>Zip:</h2>
                     <input type="text" class="zip-code">
-                    <button class="findEvent btn btn-secondary submit search">Find Event</button>
+                    <button class="findEvent btn btn-secondary submit search">Find Concert</button>
+                    <div class="search-results"></div>
                 </div>
-                <div class="search-results"></div>
             </main>
             <main class="login hidden">
                 <h1>Login</h1>
@@ -82,6 +85,7 @@
             <main class="account hidden">
                 <h1>Account</h1>
             </main>
+            <main class="event-page hidden"></main>
             <footer>
 
             </footer>
@@ -121,6 +125,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="spin.js"></script>
     <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="ticketmaster.js"></script>
