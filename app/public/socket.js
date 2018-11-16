@@ -22,6 +22,7 @@ $(function () {
     socket.emit('leaveroom', {room: room, user: localStorage.getItem('username') || undefined});
   }
   window.addEventListener('joinroom', function (e) {
+    $('#socketMessages').html('')
     if (localStorage.getItem('leaveroom')) {
       joinRoom(localStorage.getItem('joinroom'));
       leaveRoom(localStorage.getItem('leaveroom'));
