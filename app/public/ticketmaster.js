@@ -30,7 +30,7 @@ const displayEvents = function () {
 
   $.ajax({
     type: 'GET',
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&classificationName=[Music]&size=27&keyword=${artist || ''}&city=${city}&stateCode=${state}`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&classificationName=[Music]&size=27&keyword=${artist}&city=${city}&stateCode=${state}&postalCode=${zipCode}&radius=100`,
     async: true,
     dataType: "json",
     success: function (data) {
@@ -74,15 +74,25 @@ $('.search-results').on('click', 'div.event', function () {
     dataType: 'json',
     success: function (data) {
       spinner.stop();
+      document.querySelector('main.search').classList.add('hidden');
+      document.querySelector('main.event-page').classList.remove('hidden');
       $('.search-results').html('');
-      $('.search-results').append(
+      $('main.event-page').html('').append(
+        $('<h1>').text(data.name),
         $('<div>').addClass('event-details').append(
-          $('<h1>').text(data.name),
           $('<img>').attr('src', data.images[0].url),
-          $('<div>').text(`Date: ${data.dates.start.dateTime}`),
+          $('<div>').text(`Date: ${data.dates.start.localDate}`),
+          $('<div>').text(`Time: ${data.dates.start.localTime} ${data.dates.timezone}`),
           $('<div>').text(`Price Range: $${data.priceRanges[0].min} - $${data.priceRanges[0].max}`),
-          $('<div>').html(`<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>`),
-          $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`)
+          $('<div>').html(data.seatmap ? `<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>` : ''),
+          $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`),
+          (venues => {
+            var venuesHTML = '<div>Venues:</div>';
+            venues.forEach(venue => {
+              venuesHTML += `<div><a href="${venue.url}" target="_blank">${venue.name}</a></div>`;
+            });
+            return venuesHTML;
+          })(data._embedded.venues)
         )
       )
       console.log(data);
@@ -90,7 +100,7 @@ $('.search-results').on('click', 'div.event', function () {
   })
 })
 
-const foo = function () {
+const corsAnywhere = function () {
   var cors_api_host = 'cors-anywhere.herokuapp.com';
   var cors_api_url = 'https://' + cors_api_host + '/';
   var slice = [].slice;
@@ -106,4 +116,4 @@ const foo = function () {
     return open.apply(this, args);
   };
 };
-foo();
+corsAnywhere();
