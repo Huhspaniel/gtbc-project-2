@@ -182,6 +182,7 @@ main.event-page i {
     cursor: pointer;
     color: orange;
     font-size: 48px;
+    width: min-content;
 }
 
 .event-details {
@@ -294,4 +295,11 @@ footer {
 }
 .container-fluid {
     padding: 0;
+}
+@media only screen and (max-width: 600px) {
+    nav {
+        display: grid;
+        justify-items: end;
+        justify-self: flex-end;
+    }
 }
