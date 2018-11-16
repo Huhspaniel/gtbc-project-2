@@ -16,18 +16,19 @@ $(function () {
     });
   });
   function joinRoom(room) {
-    socket.emit('joinroom', room);
+    socket.emit('joinroom', {room: room, user: localStorage.getItem('username') || undefined});
+  }
+  function leaveRoom(room) {
+    socket.emit('leaveroom', {room: room, user: localStorage.getItem('username') || undefined});
   }
   window.addEventListener('joinroom', function (e) {
     if (localStorage.getItem('leaveroom')) {
-      socket.emit('leaveroom', localStorage.getItem('leaveroom'));
-      // $('#socketMessages').html('');
       joinRoom(localStorage.getItem('joinroom'));
-      localStorage.setItem('leaveroom', localStorage.getItem('joinroom'));
+      leaveRoom(localStorage.getItem('leaveroom'));
     } else {
       joinRoom(localStorage.getItem('joinroom'));
-      localStorage.setItem('leaveroom', localStorage.getItem('joinroom'));
     }
+    localStorage.setItem('leaveroom', localStorage.getItem('joinroom'));
   })
 });
 
