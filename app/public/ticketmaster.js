@@ -78,6 +78,8 @@ $('.search-results').on('click', 'div.event', function () {
     success: function (data) {
       console.log(data);
       spinner.stop();
+      localStorage.setItem('joinroom', data.id);
+      window.dispatchEvent(new Event('joinroom'));
       document.querySelector('main.search').classList.add('hidden');
       document.querySelector('.search-results').append(...lastSearch);
       document.querySelector('main.event-page').classList.remove('hidden');
