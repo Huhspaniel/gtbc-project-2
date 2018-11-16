@@ -27,7 +27,7 @@ const displayEvents = function () {
   const zipCode = $('.zip-code').val().trim();
   var spinner = new Spinner(opts).spin(document.querySelector('.search-results'));
   // document.querySelector('.search-results').appendChild(spinner.el);
-  
+
   $.ajax({
     type: 'GET',
     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&classificationName=[Music]&size=27&keyword=${artist}&city=${city}&stateCode=${state}&postalCode=${zipCode}&radius=100`,
@@ -82,27 +82,25 @@ $('.search-results').on('click', 'div.event', function () {
       console.log(lastSearch);
       document.querySelector('.search-results').append(...lastSearch);
       document.querySelector('main.event-page').classList.remove('hidden');
-      $('main.event-page').html('').append(
-        $('<h1>').text(data.name),
-        $('<div>').addClass('event-details').append(
-          $('<img>').attr('src', data.images[0].url),
-          $('<div>').text(`Date: ${data.dates.start.localDate}`),
-          $('<div>').text(`Time: ${data.dates.start.localTime} ${data.dates.timezone}`),
-          $('<div>').text(`Price Range: $${data.priceRanges[0].min} - $${data.priceRanges[0].max}`),
-          $('<div>').html(data.seatmap ? `<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>` : ''),
-          $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`),
-          (venues => {
-            var venuesHTML = '<div>Venue(s):</div>';
-            venues.forEach(venue => {
-              venuesHTML += `<div><a href="${venue.url}" target="_blank">${venue.name}</a></div>
+      $('main.event-page h1').text(data.name);
+      $('.event-details').html('').append(
+        $('<img>').attr('src', data.images[0].url),
+        $('<div>').text(`Date: ${data.dates.start.localDate}`),
+        $('<div>').text(`Time: ${data.dates.start.localTime} ${data.dates.timezone}`),
+        $('<div>').text(`Price Range: $${data.priceRanges[0].min} - $${data.priceRanges[0].max}`),
+        $('<div>').html(data.seatmap ? `<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>` : ''),
+        $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`),
+        (venues => {
+          var venuesHTML = '<div>Venue(s):</div>';
+          venues.forEach(venue => {
+            venuesHTML += `<div><a href="${venue.url}" target="_blank">${venue.name}</a></div>
                               <div>${venue.address.line1}</div>
                               <div>${venue.address.line2 || ''}</div>
                               <div>${venue.address.line3 || ''}</div>
                               <div>${venue.city.name}, ${venue.state ? venue.state.name : venue.country.name}`;
-            });
-            return venuesHTML;
-          })(data._embedded.venues)
-        )
+          });
+          return venuesHTML;
+        })(data._embedded.venues)
       )
     }
   })

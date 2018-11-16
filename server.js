@@ -11,14 +11,6 @@ var cookieParser = require('cookie-parser');
 
 
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
-io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
-    });
-});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,6 +20,15 @@ app.use(express.static(path.join(__dirname, './app/public')));
 
 require(path.join(__dirname, 'app/routes/html-routes.js'))(app);
 require(path.join(__dirname, 'app/routes/api-routes.js'))(app);
+
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+io.on('connection', function (socket) {
+    socket.on('chat message', function (msg) {
+        io.emit('chat message', msg);
+    });
+});
 
 db.sequelize.sync({ force: env === 'development' }).then(function () {
     http.listen(PORT, function () {
