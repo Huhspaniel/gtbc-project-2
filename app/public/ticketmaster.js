@@ -38,11 +38,14 @@ const displayEvents = function () {
       if (data._embedded) {
         console.log(data._embedded.events);
         data._embedded.events.forEach(event => {
+          const venue = event._embedded.venues[0];
           console.log(event);
           $('.search-results').append(
             $('<div>').addClass('event').html(
               `<h2>${event.name}</h2>
-              <img src='${event.images[0].url}'>`
+              <img src='${event.images[0].url}'>
+              <div>${event.dates.start.localDate}</div>
+              <div>${venue.city.name}, ${venue.state ? venue.state.stateCode : venue.country.name}</div>`
             ).attr('data-id', event.id)
           )
         });
@@ -65,7 +68,6 @@ $('.findEvent').on('click', () => {
 })
 
 $('.search-results').on('click', 'div.event', function () {
-  clearEvents();
   var spinner = new Spinner(opts).spin(document.querySelector('.search-results'));
   $.ajax({
     type: 'GET',
@@ -76,7 +78,6 @@ $('.search-results').on('click', 'div.event', function () {
       spinner.stop();
       document.querySelector('main.search').classList.add('hidden');
       document.querySelector('main.event-page').classList.remove('hidden');
-      $('.search-results').html('');
       $('main.event-page').html('').append(
         $('<h1>').text(data.name),
         $('<div>').addClass('event-details').append(
@@ -87,9 +88,13 @@ $('.search-results').on('click', 'div.event', function () {
           $('<div>').html(data.seatmap ? `<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>` : ''),
           $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`),
           (venues => {
-            var venuesHTML = '<div>Venues:</div>';
+            var venuesHTML = '<div>Venue(s):</div>';
             venues.forEach(venue => {
-              venuesHTML += `<div><a href="${venue.url}" target="_blank">${venue.name}</a></div>`;
+              venuesHTML += `<div><a href="${venue.url}" target="_blank">${venue.name}</a></div>
+                              <div>${venue.address.line1}</div>
+                              <div>${venue.address.line2 || ''}</div>
+                              <div>${venue.address.line3 || ''}</div>
+                              <div>${venue.city.name}, ${venue.state ? venue.state.name : venue.country.name}`;
             });
             return venuesHTML;
           })(data._embedded.venues)
