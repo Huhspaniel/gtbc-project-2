@@ -28,7 +28,9 @@ nav {
 }
 .active{
     margin-left:20px;
-} */
+}
+
+*/
 
 .container-fluid {
     min-height: 100vh;
@@ -52,6 +54,7 @@ header {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    z-index: 2;
 }
 header img {
     width: 100%;
@@ -67,18 +70,22 @@ nav {
     padding: 10px 20px;
     justify-items: end; */
 }
-button.nav {
+a {
+    text-decoration: none;
+    color: none;
+}
+.nav {
     background: none;
     border: none;
     cursor: pointer;
     color: #888888aa;
     text-decoration: none;
 }
-button.nav:hover {
+.nav:hover {
     color: #888888ff;
     text-decoration: none;
 }
-button.nav:focus {
+.nav:focus {
     outline: none;
 }
 main {
@@ -109,7 +116,7 @@ main.home img {
 h1 {
     text-align: center;
     width: 100%;
-    padding: 25px;
+    padding: 25px 40px;
     background-color: #101010;
     color: white;
     font-size: 35px;
@@ -161,6 +168,22 @@ div.input > * {
     padding: 10px;
 }
 
+main.event-page {
+    position: relative;
+}
+
+main.event-page i {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+}
+
+.fa-bookmark {
+    cursor: pointer;
+    color: orange;
+    font-size: 48px;
+}
+
 .event-details {
     display: flex;
     flex-direction: column;
@@ -187,6 +210,81 @@ footer {
 .hidden {
     display: none;
 }
+
+/* The following lines are for Socket.io*/
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+  .socketInterface {
+      border-width: 4px;
+      border-color: black;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: rgb(170, 169, 169);
+      -webkit-box-shadow: -2px 2px 32px 0px rgba(0,0,0,0.47);
+      -moz-box-shadow: -2px 2px 32px 0px rgba(0,0,0,0.47);
+      box-shadow: -2px 2px 32px 0px rgba(0,0,0,0.47);
+  }
+
+  form {
+    background: rgb(85, 84, 84);
+    padding: 3px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  form input {
+    border: 0;
+    padding:10px;
+    padding-bottom: 5px;
+    width: 100%;
+    margin-right: .5%;
+    bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  form button {
+    width: 100%;
+    background: rgb(75, 241, 130);
+    border: none;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #202020;
+  }
+
+  #socketMessages {
+    width: 100%;
+    height: 400px;
+    color: black;
+    background-color: rgb(250, 246, 246);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto scroll;
+  }
+
+  #socketMessages li {
+    padding: 5px 10px;
+    margin-bottom: 0;
+  }
+
+  #socketMessages li:nth-child(odd) {
+    background: rgb(225, 225, 225);
+  }
 .wrapper {
     display: flex;
     width: 100%;

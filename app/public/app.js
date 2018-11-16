@@ -25,7 +25,7 @@ const loadPage = e => {
         clearInputs(e);
     }
 }
-Array.from(document.getElementsByClassName('nav')).forEach(el => {
+Array.from(document.querySelectorAll('.nav:not(#menu-toggle)')).forEach(el => {
     if (el.classList.contains('logout')) return;
     el.addEventListener('click', loadPage);
 })
@@ -82,7 +82,7 @@ const logout = () => {
 const renderLogin = () => {
     document.querySelector('.nav.account').textContent = localStorage.getItem('username');
     document.querySelector('main.account h1').textContent = localStorage.getItem('username');
-    Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account')).forEach(el => {
+    Array.from(document.querySelectorAll('.nav.login, .nav.create-account, .nav.logout, .nav.account, #menu-toggle')).forEach(el => {
         el.classList.toggle('hidden');
     });
     document.querySelector('.nav.account').click();
@@ -120,6 +120,22 @@ document.querySelector('.nav.logout').addEventListener('click', e => {
 
 document.querySelector('.submit.create').addEventListener('click', e => {
     e.preventDefault();
+    xhr.open('POST', '/api/users');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = () => {
+        const user = JSON.parse(xhr.response);
+        if (!user.error) {
+            login(usernameCreate.value, passwordCreate.value, e);
+            clearInputs(e);
+        }
+        console.log(user);
+    }
+    let name = nameCreate.value.split(' ');
+    xhr.send(JSON.stringify({
+        username: usernameCreate.value,
+        password: passwordCreate.value,
+        email: emailCreate.value
+    }))
     createAccount();
 });
 
@@ -130,3 +146,9 @@ if (window.location.hash) {
 
     localStorage.setItem("spotify_access_token", access_token);
 }
+
+document.querySelector('.fa-bookmark').addEventListener('click', e => {
+    e.preventDefault();
+    e.target.classList.toggle('far');
+    e.target.classList.toggle('fas');
+})
