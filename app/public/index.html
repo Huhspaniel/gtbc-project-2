@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 2</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -14,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="simple-sidebar.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <link rel="stylesheet" href="spin.css">
+    <title>Project 2</title>
 </head>
 
 <body>
@@ -24,6 +24,7 @@
                 <img src="assets/white_logo_transparent_background.png" alt="logo">
                 <nav>
                     <button class="nav home">Home</button>
+                    <button class="nav search">Search</button>
                     <button class="nav login">Login</button>
                     <button class="nav create-account">Create Account</button>
                     <button class="nav account hidden">Account</button>
@@ -31,21 +32,8 @@
                     <a href="#" class="nav" id="menu-toggle">Toggle Menu</a>
                 </nav>
             </header>
-
-
             <main class="home">
-                <h1>Search for nearby concerts</h1>
-                <div class="input search animated fadeIn">
-                    <h2>Artist:</h2>
-                    <input type="text" class="artist">
-                    <h2>City:</h2>
-                    <input type="text" class="city">
-                    <h2>State:</h2>
-                    <input type="text" class="state">
-                    <h2>Zip:</h2>
-                    <input type="text" class="zip-code">
-                    <button class="submit search">Submit</button>
-                </div>
+                <img src="./assets/live_list.png" alt="logo">
                 <div class="socketInterface animated fadeIn">
                     <ul id="socketMessages"></ul>
                     <form class="form" action="">
@@ -53,9 +41,25 @@
                     </form>
                 </div>
             </main>
+            <main class="search hidden">
+                <h1>Search</h1>
+                <div class="input search">
+                    
+                    <h2>Search:</h2>
+                    <input type="text" class="artist">
+                    <h2>City:</h2>
+                    <input type="text" class="city">
+                    <h2>State:</h2>
+                    <input type="text" class="state">
+                    <h2>Zip:</h2>
+                    <input type="text" class="zip-code">
+                    <button class="findEvent btn btn-secondary submit search">Find Concert</button>
+                    <div class="search-results"></div>
+                </div>
+            </main>
             <main class="login hidden">
                 <h1>Login</h1>
-                <div class="input login animated fadeIn">
+                <div class="input login">
                     <h2>Username:</h2>
                     <input type="text" class="username">
                     <h2>Password:</h2>
@@ -63,13 +67,13 @@
                     <button class="submit login">Submit</button>
                     <div>
                         <button class="nav create-account">Create Account</button>
-                        <a href="#" class="nav login-spotify">Login with Spotify</a>
+                        <a href="/SpotifyLogin" class="nav login-spotify">Login with Spotify</a>
                     </div>
                 </div>
             </main>
             <main class="create-account hidden">
                 <h1>Create Account</h1>
-                <div class="input create animated fadeIn">
+                <div class="input create">
                     <h2>Email:</h2>
                     <input type="text" class="email">
                     <h2>Username:</h2>
@@ -81,13 +85,14 @@
                     <button class="submit create">Submit</button>
                     <div>
                         <button class="nav login">Login</button>
-                        <a href="#" class="nav login-spotify">Login with Spotify</a>
+                        <a href="/SpotifyLogin" class="nav login-spotify">Login with Spotify</a>
                     </div>
                 </div>
             </main>
             <main class="account hidden">
                 <h1>Account</h1>
             </main>
+            <main class="event-page hidden"></main>
             <footer>
 
             </footer>
@@ -121,14 +126,17 @@
                 </li>
             </ul>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-        <script src="app.js"></script>
-        <script src="socket.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="spin.js"></script>
+    <script src="app.js"></script>
+    <script src="socket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="ticketmaster.js"></script>
 </body>
 
 </html>

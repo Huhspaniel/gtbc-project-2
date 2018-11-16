@@ -2,7 +2,7 @@ module.exports = {
     development: {
         username: "root",
         password: process.env.DB_PASS,
-        database: "concert_chat_app",
+        database: "db",
         host: "127.0.0.1",
         port: 3306,
         dialect: "mysql"
