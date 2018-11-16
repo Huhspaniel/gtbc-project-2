@@ -18,7 +18,7 @@ var opts = {
   shadow: '0 0 1px transparent', // Box-shadow for the lines
   position: 'absolute' // Element positioning
 };
-
+let lastSearch;
 const displayEvents = function () {
 
   const artist = $('.artist').val().trim();
@@ -27,7 +27,7 @@ const displayEvents = function () {
   const zipCode = $('.zip-code').val().trim();
   var spinner = new Spinner(opts).spin(document.querySelector('.search-results'));
   // document.querySelector('.search-results').appendChild(spinner.el);
-
+  
   $.ajax({
     type: 'GET',
     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=nwxOIKtHH091zDnP5hT7HPf3mYiGEHN1&classificationName=[Music]&size=27&keyword=${artist}&city=${city}&stateCode=${state}&postalCode=${zipCode}&radius=100`,
@@ -39,7 +39,6 @@ const displayEvents = function () {
         console.log(data._embedded.events);
         data._embedded.events.forEach(event => {
           const venue = event._embedded.venues[0];
-          console.log(event);
           $('.search-results').append(
             $('<div>').addClass('event').html(
               `<h2>${event.name}</h2>
@@ -52,6 +51,8 @@ const displayEvents = function () {
       } else {
         $('.search-results').html('No results found.');
       }
+      lastSearch = Array.from(document.querySelector('.search-results').children);
+      console.log(lastSearch);
     },
     error: function (xhr, status, err) {
       console.log(err);
@@ -68,6 +69,7 @@ $('.findEvent').on('click', () => {
 })
 
 $('.search-results').on('click', 'div.event', function () {
+  clearEvents();
   var spinner = new Spinner(opts).spin(document.querySelector('.search-results'));
   $.ajax({
     type: 'GET',
@@ -77,6 +79,8 @@ $('.search-results').on('click', 'div.event', function () {
     success: function (data) {
       spinner.stop();
       document.querySelector('main.search').classList.add('hidden');
+      console.log(lastSearch);
+      document.querySelector('.search-results').append(...lastSearch);
       document.querySelector('main.event-page').classList.remove('hidden');
       $('main.event-page').html('').append(
         $('<h1>').text(data.name),
@@ -100,7 +104,6 @@ $('.search-results').on('click', 'div.event', function () {
           })(data._embedded.venues)
         )
       )
-      console.log(data);
     }
   })
 })
