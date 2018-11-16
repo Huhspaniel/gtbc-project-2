@@ -70,18 +70,22 @@ nav {
     padding: 10px 20px;
     justify-items: end; */
 }
-button.nav {
+a {
+    text-decoration: none;
+    color: none;
+}
+.nav {
     background: none;
     border: none;
     cursor: pointer;
     color: #888888aa;
     text-decoration: none;
 }
-button.nav:hover {
+.nav:hover {
     color: #888888ff;
     text-decoration: none;
 }
-button.nav:focus {
+.nav:focus {
     outline: none;
 }
 main {
@@ -112,7 +116,7 @@ main.home img {
 h1 {
     text-align: center;
     width: 100%;
-    padding: 25px;
+    padding: 25px 40px;
     background-color: #101010;
     color: white;
     font-size: 35px;
@@ -162,6 +166,22 @@ div.input > * {
     font-size: 18px;
     margin: 0;
     padding: 10px;
+}
+
+main.event-page {
+    position: relative;
+}
+
+main.event-page i {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+}
+
+.fa-bookmark {
+    cursor: pointer;
+    color: orange;
+    font-size: 48px;
 }
 
 .event-details {

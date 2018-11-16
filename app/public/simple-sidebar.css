@@ -54,6 +54,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  color: #999999;
 }
 
 .sidebar-nav li {
@@ -83,7 +84,7 @@
   line-height: 60px;
 }
 
-.sidebar-nav>.sidebar-brand a {
+.sidebar-nav>.sidebar-brand {
   color: #999999;
 }
 

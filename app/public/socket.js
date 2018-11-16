@@ -3,7 +3,7 @@ $(function () {
   $('form').submit(function () {
     socket.emit('message', JSON.stringify({
       room: localStorage.getItem('joinroom'),
-      msg: `<span style="color:orange">@${localStorage.getItem('username') || 'Anonymous'}:</span> ${$('#m').val()}`
+      msg: `<span style="color:orange">@${localStorage.getItem('username') || `Anonymous-${socket.id}`}:</span> ${$('#m').val()}`
     }));
     $('#m').val('');
     return false;
