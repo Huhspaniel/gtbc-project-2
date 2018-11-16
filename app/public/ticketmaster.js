@@ -52,7 +52,6 @@ const displayEvents = function () {
         $('.search-results').html('No results found.');
       }
       lastSearch = Array.from(document.querySelector('.search-results').children);
-      console.log(lastSearch);
     },
     error: function (xhr, status, err) {
       console.log(err);
@@ -77,9 +76,9 @@ $('.search-results').on('click', 'div.event', function () {
     async: true,
     dataType: 'json',
     success: function (data) {
+      console.log(data);
       spinner.stop();
       document.querySelector('main.search').classList.add('hidden');
-      console.log(lastSearch);
       document.querySelector('.search-results').append(...lastSearch);
       document.querySelector('main.event-page').classList.remove('hidden');
       $('main.event-page h1').text(data.name);
@@ -87,7 +86,7 @@ $('.search-results').on('click', 'div.event', function () {
         $('<img>').attr('src', data.images[0].url),
         $('<div>').text(`Date: ${data.dates.start.localDate}`),
         $('<div>').text(`Time: ${data.dates.start.localTime} ${data.dates.timezone}`),
-        $('<div>').text(`Price Range: $${data.priceRanges[0].min} - $${data.priceRanges[0].max}`),
+        $('<div>').text(data.priceRanges ? `Price Range: $${data.priceRanges[0].min} - $${data.priceRanges[0].max}` : ''),
         $('<div>').html(data.seatmap ? `<a href=${data.seatmap.staticUrl} target="_blank">Seat Map</a>` : ''),
         $('<div>').html(`<a href=${data.url} target="_blank">Ticketmasters</a>`),
         (venues => {
